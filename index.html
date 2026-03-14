@@ -44,6 +44,7 @@
             align-items: center;
             border-left: 4px solid var(--gray);
             transition: transform 0.2s;
+            gap: 15px; /* Добавлено: отступ между текстом и кнопкой */
         }
 
         .proxy-item:hover {
@@ -55,6 +56,7 @@
             font-family: 'Courier New', monospace;
             font-size: 0.9em;
             color: var(--fg);
+            word-break: break-all; /* Добавлено: чтобы длинный секрет не растягивал экран */
         }
 
         .social-links {
@@ -65,15 +67,12 @@
             margin-top: 15px;
         }
 
-        .tg-color:hover { background: var(--blue); }
-        .gh-color:hover { background: var(--purple); }
-
         .btn-link {
             display: inline-block;
             padding: 10px 20px;
-            background: var(--bg2);
+            background: var(--bg1); /* Исправлено: переменная bg2 отсутствовала */
             border-radius: 30px;
-            color: var(--fg0);
+            color: var(--fg);
             font-weight: bold;
             transition: all 0.2s;
             text-decoration: none;
@@ -84,6 +83,8 @@
             color: var(--bg0);
             text-decoration: none;
         }
+        .tg-color:hover { background: var(--blue); color: var(--bg0); }
+        .gh-color:hover { background: var(--purple); color: var(--bg0); }
 
         .btn {
             background-color: var(--bg1);
@@ -96,10 +97,12 @@
             text-transform: uppercase;
             font-size: 12px;
             transition: background 0.3s;
+            white-space: nowrap; /* Добавлено: чтобы текст в кнопке не переносился */
         }
 
         .btn:hover {
             background-color: var(--yellow);
+            color: var(--bg0);
         }
 
         .channels-box {
@@ -129,6 +132,21 @@
             font-size: 0.9em;
             margin-bottom: 20px;
         }
+
+        /* --- АДАПТИВНЫЙ БЛОК --- */
+        @media (max-width: 600px) {
+            .proxy-item {
+                flex-direction: column; /* Элементы становятся друг под другом */
+                align-items: flex-start;
+            }
+            .btn {
+                align-self: stretch; /* Кнопка растягивается на всю ширину */
+                text-align: center;
+            }
+            body {
+                padding: 10px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -150,10 +168,6 @@
             <span class="info">IP: 185.23.19.77, Port: 443, Secret: eed9254e6f1a6ab9ac21defdcb67cc12b231632e7275</span>
             <a href="https://t.me/proxy?server=185.23.19.77&port=443&secret=eed9254e6f1a6ab9ac21defdcb67cc12b231632e7275" class="btn">Включить</a>
         </div>
-        <div class="proxy-item">
-            <span class="info">IP: 83.166.254.26, Port: 443, Secret: dd6b3fb02424dbac55fef2da67c8c949</span>
-            <a href="https://t.me/proxy?server=83.166.254.26&port=443&secret=dd6b3fb02424dbac55fef2da67c8c949" class="btn">Включить</a>
-        </div>
     </section>
 
     <section class="proxy-container">
@@ -163,22 +177,6 @@
             <a href="https://t.me/proxy?server=178.215.236.96&port=443&secret=5b891e7a39405cf98b16a531eb78a5c2" class="btn">Включить</a>
         </div>
     </section>
-
-    <!-- <section class="proxy-container"> -->
-    <!--     <h2>Ллимоникс</h2> -->
-    <!--     <div class="proxy-item"> -->
-    <!--         <span class="info">IP: 144.31.106.38</span> -->
-    <!--         <a href="https://t.me/proxy?server=144.31.106.38&port=443&secret=ee3b3299b7277041eed4789e5b758b34626f7a6f6e2e7275" class="btn">Включить</a> -->
-    <!--     </div> -->
-    <!--     <div class="proxy-item"> -->
-    <!--         <span class="info">IP: 144.31.136.20</span> -->
-    <!--         <a href="https://t.me/proxy?server=144.31.136.20&port=443&secret=eee353be048a0a57e723bc04ff21924fe9766b2e6363" class="btn">Включить</a> -->
-    <!--     </div> -->
-    <!--     <div class="proxy-item"> -->
-    <!--         <span class="info">IP: 194.238.57.206</span> -->
-    <!--         <a href="https://t.me/proxy?server=194.238.57.206&port=443&secret=ee73f5bd9026dbdeaffe695062e23ecc5231632e7275" class="btn">Включить</a> -->
-    <!--     </div> -->
-    <!-- </section> -->
 
     <section class="proxy-container">
         <h2>Каналы с прокси</h2>
